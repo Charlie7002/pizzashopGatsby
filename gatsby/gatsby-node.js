@@ -26,33 +26,6 @@ async function turnPizzasIntoPages({ graphql, actions }) {
 	});
 }
 
-// try
-// async function turnSingleSlicemasterIntoPages({ graphql, actions }) {
-//   const SliceMasterTemplate = path.resolve('./src/templates/SliceMaster.js');
-//   const { data } = await graphql(`
-//     query {
-//       slicemasters: allSanityPerson {
-//         nodes {
-//           name
-//           slug {
-//             current
-//           }
-//         }
-//       }
-//     }
-//   `);
-//   data.slicemasters.nodes.forEach((person) => {
-//     actions.createPage({
-//       path: `slicemasters/${person.slug.current}`,
-//       component: SliceMasterTemplate,
-//       context: {
-//         slug: person.slug.current,
-//       },
-//     });
-//   });
-// }
-// try
-
 async function turnToppingsIntoPages({ graphql, actions }) {
 	const toppingTemplate = path.resolve("./src/pages/pizzas.js");
 	const { data } = await graphql(`
