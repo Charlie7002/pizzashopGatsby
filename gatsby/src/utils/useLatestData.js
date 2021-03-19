@@ -49,7 +49,7 @@ export default function useLatestDate() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res.data);
+
         setHotSlices(res.data.StoreSettings.hotSlices);
         setSlicemasters(res.data.StoreSettings.slicemaster);
       });

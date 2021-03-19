@@ -40,9 +40,6 @@ const PersonStyle = styled.div`
 
 export default function slicemasters({ data, pageContext }) {
   const persons = data.slicemasters.nodes;
-  console.log(data);
-  console.log(`total count :${data.slicemasters.totalCount}`);
-
   return (
     <>
       <SEO
