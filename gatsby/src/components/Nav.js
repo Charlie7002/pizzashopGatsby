@@ -81,6 +81,7 @@ export default function Nav() {
 				<li>
 					<Link to="/pizzas">pizzas</Link>
 				</li>
+
 				<li className="logo-item">
 					<Link to="/">
 						<Logo />

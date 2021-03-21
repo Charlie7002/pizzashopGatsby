@@ -1,4 +1,4 @@
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import React from "react";
 import Img from "gatsby-image";
 import SEO from "../components/SEO";
@@ -10,6 +10,15 @@ import MenuItemStyles from "../styles/MenuItemStyles";
 import usePizza from "../utils/usePizza";
 import PizzaOrder from "../components/PizzaOrder";
 import calculateOrderTotal from "../utils/calculateOrderTotal";
+import Layout from "../components/Layout";
+import styled from "styled-components";
+
+const Beers = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: -30px auto 20px;
+`;
 
 export default function OrderPage({ data }) {
 	const pizzas = data.pizzas.nodes;
@@ -23,8 +32,14 @@ export default function OrderPage({ data }) {
 		return <p>{message}</p>;
 	}
 	return (
-		<>
+		<Layout>
 			<SEO title="Order a Pizza" />
+			<Beers className="beers">
+				<h3>Don't forget beers! (Dine in Only) &nbsp;: &nbsp; </h3>
+				<Link to="/beers">
+					<button> 🍻 See Ours Beers</button>
+				</Link>
+			</Beers>
 			<OrderStyle onSubmit={submitOrder}>
 				<fieldset className="info" disabled={loading}>
 					<legend>Your Info</legend>
@@ -65,7 +80,7 @@ export default function OrderPage({ data }) {
 					</button>
 				</fieldset>
 			</OrderStyle>
-		</>
+		</Layout>
 	);
 }
 
